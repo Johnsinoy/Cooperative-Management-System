@@ -17,9 +17,22 @@
     <!-- Navbar -->
     <div class="navbar">
         <span style="margin-right: auto;">Cooperative Financing</span>
-        <div>
+
+        <!-- Navigation Links -->
+        <div style="display: flex; gap: 10px; margin-right: 40px;">
             <span>Dashboard</span>
-            <span>Administrative</span>
+
+            <!-- Dropdown for Administrative -->
+            <div class="dropdown-container" style="position: relative;">
+                <span onclick="toggleDropdown()" style="cursor: pointer;">Administrative ▼</span>
+                <div id="adminDropdown" style="display: none; position: absolute; background: white;
+                    color: black; top: 30px; left: 0; width: 160px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+                    border-radius: 5px; padding: 10px;">
+                    <a href="#" style="display: block; padding: 8px; text-decoration: none; color: black;">➕ Add a Member</a>
+                    <a href="#" style="display: block; padding: 8px; text-decoration: none; color: black;">📝 Manage Users</a>
+                </div>
+            </div>
+
             <span>Reports</span>
         </div>
     </div>
@@ -50,6 +63,9 @@
             <div class="box">✔️ APPROVED LOAN</div>
         </div>
     </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="~/js/admin-dashboard.js" asp-append-version="true"></script>
 
 </body>
 </html>
