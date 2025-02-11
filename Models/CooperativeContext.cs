@@ -8,6 +8,7 @@ namespace Cooperative_Financing.Models
         {
         }
         public DbSet<Members> Members { get; set; }
+        public DbSet<Loans> Loans { get; set; }
 
     }
 }
