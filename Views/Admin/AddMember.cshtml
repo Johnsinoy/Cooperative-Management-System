@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Add Member";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Member</title>
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="~/css/Add-Member.css" asp-append-version="true">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <span style="margin-right: auto;">Cooperative Financing</span>
+
+        <!-- Navigation Links -->
+        <div style="display: flex; gap: 10px; margin-right: 40px;">
+            <span>Dashboard</span>
+
+            <!-- Dropdown for Administrative -->
+            <div class="dropdown-container" style="position: relative;">
+                <span onclick="toggleDropdown()" style="cursor: pointer;">Administrative ▼</span>
+                <div id="adminDropdown" style="display: none; position: absolute; background: white;
+                    color: black; top: 30px; left: 0; width: 160px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+                    border-radius: 5px; padding: 10px;">
+                    <a asp-controller="Admin" asp-action="AddMember" style="display: block; padding: 8px;   text-decoration: none; color: black;">➕ Add a Member</a>
+                    <a href="#" style="display: block; padding: 8px; text-decoration: none; color: black;">📝 Manage Users</a>
+                </div>
+            </div>
+
+            <span>Reports</span>
+        </div>
+    </div>
+
+        <div class="form-container">
+            <form method="post" action="/Admin/SaveMember">
+                <!-- Personal Information -->
+                <div class="form-group">
+                    <label for="first_name">First Name <span class="required">*</span></label>
+                    <input type="text" id="first_name" name="First_Name" maxlength="45" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="last_name">Last Name <span class="required">*</span></label>
+                    <input type="text" id="last_name" name="Last_Name" maxlength="45" required>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="street">Street</label>
+                    <input type="text" id="street" name="Street" maxlength="45">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="City" maxlength="45">
+                    </div>
+                    <div class="form-group half">
+                        <label for="province">Province</label>
+                        <input type="text" id="province" name="Province" maxlength="45">
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="text" id="phone" name="Phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+
+                <!-- Membership Details -->
+                <div class="form-group">
+                    <label for="join_date">Date of Joining <span class="required">*</span></label>
+                    <input type="date" id="join_date" name="JoinDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contribution">Contribution <span class="required">*</span></label>
+                    <input type="text" id="contribution" name="Contribution" maxlength="45" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="~/js/admin-dashboard.js" asp-append-version="true"></script>
+
+</body>
+</html>
