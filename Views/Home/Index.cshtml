@@ -1,8 +1,28 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Cooperative_Financing.Models.ViewModels.PageViewModel
+
+@{
+    ViewData["Title"] = "Login";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form asp-action="Login" method="post">
+    <div class="login-container">
+        <h2>COOPERATIVE FINANCING</h2>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="Username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="Password" required>
+
+        <a href="#" class="forgot-password">Forgot Password?</a>
+
+        <button type="submit" class="btn-submit"
+                style="background-color: darkcyan; color: white; padding: 10px 20px;
+           border: none; border-radius: 20px; font-size: 1em;
+           font-weight: bold; cursor: pointer;">
+            Submit
+        </button>
+
+    </div>
+</form>
+

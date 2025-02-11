@@ -1,22 +1,60 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+﻿/* Login Page Styles */
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(to right, #00C6FB, #FDEE99);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
+
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ 
+}
+
+h2 {
+    font-weight: bold;
+    color: black;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+input {
+    width: 80%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.btn-submit {
+    background-color: #00C6FB;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 20px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+    .btn-submit:hover {
+        background-color: #0288D1;
+    }
