@@ -4,17 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Cooperative_Financing.Models
 {
     public class Loans
-    {
-        [Key]
+    {[Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Loan_Id { get; set; }
 
         [Required]
         public int Member_Id { get; set; }
-
-        [ForeignKey("Member_Id")]
-        public virtual Members Member { get; set; }  // ✅ Fix Foreign Key
-
         public decimal Loan_Amount { get; set; }
         public string Purpose_Loan { get; set; }
         public float Annual_Interest { get; set; }

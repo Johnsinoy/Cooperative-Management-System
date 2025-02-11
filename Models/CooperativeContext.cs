@@ -26,9 +26,9 @@ namespace Cooperative_Financing.Models
                 .HasForeignKey(p => p.Loan_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // ✅ Ensure Correct Foreign Key for Loans Table
+            // ✅ Remove the reference to `l.Member`
             modelBuilder.Entity<Loans>()
-                .HasOne(l => l.Member)
+                .HasOne<Members>()
                 .WithMany()
                 .HasForeignKey(l => l.Member_Id)
                 .OnDelete(DeleteBehavior.Cascade);
