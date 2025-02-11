@@ -8,89 +8,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <style>
-        body {
-            background: linear-gradient(to right, #00C6FB, #FDEE99);
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
 
-        .container {
-            display: flex;
-        }
-
-        .sidebar {
-            width: 20%;
-            background: #008080;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .sidebar h2 {
-            color: white;
-            text-align: center;
-        }
-
-        .menu {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .menu button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            background-color: white;
-            color: black;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .menu .active {
-            background-color: #2F9C95;
-            color: white;
-        }
-
-        .main-content {
-            width: 80%;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .box {
-            width: 250px;
-            height: 100px;
-            background: gray;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            border-radius: 10px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            background: transparent;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="~/css/admin-dashboard.css" asp-append-version="true">
 </head>
 <body>
 
+    <!-- Navbar -->
     <div class="navbar">
-        <span>Dashboard</span>
-        <span>Administrative</span>
-        <span>Reports</span>
-        <span>Cooperative Financing</span>
+        <span style="margin-right: auto;">Cooperative Financing</span>
+        <div>
+            <span>Dashboard</span>
+            <span>Administrative</span>
+            <span>Reports</span>
+        </div>
     </div>
 
     <div class="container">
@@ -98,27 +29,25 @@
         <div class="sidebar">
             <h2>Menu</h2>
             <div class="menu">
-                <button class="active">HOME</button>
-                <button>MEMBER</button>
-                <button>LOANS</button>
-                <button>PAYMENTS</button>
-                <button>USER</button>
+                <button class="active">🏠 HOME</button>
+                <button>👤 MEMBER</button>
+                <button>💰 LOANS</button>
+                <button>💳 PAYMENTS</button>
+                <button>🔑 USER</button>
             </div>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
-            <div class="box">MEMBER</div>
-            <div class="box">CONTRIBUTION</div>
-            <div class="box">MONEY ON HAND</div>
-
-            <div class="box">PAYMENT RECEIVED</div>
-            <div class="box">BALANCE TO COLLECT</div>
-            <div class="box">LEND MONEY</div>
-
-            <div class="box">REPORTS</div>
-            <div class="box">ACTIVE LOANS</div>
-            <div class="box">APPROVED LOAN</div>
+            <div class="box">👥 MEMBER</div>
+            <div class="box">📈 CONTRIBUTION</div>
+            <div class="box">💵 MONEY ON HAND</div>
+            <div class="box">💰 PAYMENT RECEIVED</div>
+            <div class="box">📊 BALANCE TO COLLECT</div>
+            <div class="box">🏦 LEND MONEY</div>
+            <div class="box">📜 REPORTS</div>
+            <div class="box">📌 ACTIVE LOANS</div>
+            <div class="box">✔️ APPROVED LOAN</div>
         </div>
     </div>
 

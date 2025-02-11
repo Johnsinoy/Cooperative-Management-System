@@ -1,48 +1,107 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/* 📌 Official Documentation:
+   https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+   This CSS file is configured to bundle and minify static web assets.
+*/
 
+/* 🔹 Navbar Brand */
 a.navbar-brand {
-  white-space: normal;
+  white-space: nowrap; /* Prevents text from breaking unnecessarily */
   text-align: center;
-  word-break: break-all;
+  word-break: break-word; /* Ensures proper wrapping */
+  font-weight: bold;
 }
 
+/* 🔹 Default Link Styles */
 a {
   color: #0077cc;
+  text-decoration: none; /* Removes underline for a cleaner look */
+  transition: 0.3s ease-in-out;
 }
 
+a:hover {
+  color: #005fa3; /* Darker shade on hover */
+  text-decoration: underline;
+}
+
+/* 🔹 Primary Button */
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.btn-primary:hover {
+  background-color: #155a9f;
+  border-color: #144a88;
+}
+
+/* 🔹 Active Nav Pills */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+  font-weight: bold;
 }
 
+/* 🔹 Borders */
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
 
+/* 🔹 Box Shadow */
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* More noticeable shadow */
 }
 
+/* 🔹 Accept Policy Button */
 button.accept-policy {
   font-size: 1rem;
-  line-height: inherit;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  transition: 0.3s;
 }
 
+button.accept-policy:hover {
+  background-color: #218838;
+}
+
+/* 🔹 Footer */
 .footer {
-  position: absolute;
+  position: fixed; /* Fixes footer at the bottom */
   bottom: 0;
+  left: 0;
   width: 100%;
-  white-space: nowrap;
+  background: #f8f9fa;
+  text-align: center;
   line-height: 60px;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1rem;
+    text-align: left; /* Aligns text to the left for better mobile view */
+  }
+
+  .footer {
+    line-height: 40px;
+    padding: 5px 0;
+    font-size: 0.8rem;
+  }
 }

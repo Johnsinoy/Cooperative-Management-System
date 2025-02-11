@@ -58,3 +58,70 @@ input {
     .btn-submit:hover {
         background-color: #0288D1;
     }
+
+body {
+    background: linear-gradient(to right, #00C6FB, #FDEE99);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    background: #008080;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+    .sidebar h2 {
+        color: white;
+        text-align: center;
+    }
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .menu button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .menu .active {
+        background-color: #2F9C95;
+        color: white;
+    }
+
+.main-content {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.box {
+    width: 250px;
+    height: 100px;
+    background: gray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
