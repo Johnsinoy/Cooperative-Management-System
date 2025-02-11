@@ -3,28 +3,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cooperative_Financing.Models
 {
-    [Table("payments")]
     public class Payments
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Payment_Id { get; set; }  // Primary Key, Auto-Increment
+        public int Payment_Id { get; set; }
 
-        [ForeignKey("Loans")]
-        public int Loan_Id { get; set; }  // Foreign Key to Loans Table
-        public Loans Loan { get; set; }  // Navigation Property
+        [Required]
+        public int Loan_Id { get; set; }
 
-        [ForeignKey("Members")]
-        public int Member_Id { get; set; }  // Foreign Key to Members Table
-        public Members Member { get; set; }  // Navigation Property
+        [Required]
+        public int Member_Id { get; set; }  // ✅ Ensure Foreign Key Property Exists
+
+        // ✅ Explicitly Define Foreign Key Relationships
+        [ForeignKey(nameof(Loan_Id))]
+        public virtual Loans Loan { get; set; }
+
+        [ForeignKey(nameof(Member_Id))]
+        public virtual Members Member { get; set; }
 
         [Column(TypeName = "date")]
-        [Required]
-        public DateTime Payment_Date { get; set; }  // Date of payment
+        public DateTime Payment_Date { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
-        [Required]
-        public decimal Payment_Amount { get; set; }  // Amount paid
+        public decimal Payment_Amount { get; set; }
 
     }
 }

@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cooperative_Financing.Models
 {
-    [Table("members")] // Ensure it maps correctly to the table
     public class Members
     {
         [Key]

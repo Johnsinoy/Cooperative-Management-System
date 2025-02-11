@@ -11,6 +11,35 @@ namespace Cooperative_Financing.Models
         public DbSet<Loans> Loans { get; set; }
         public DbSet<Payments> Payments { get; set; }
         public DbSet<DataUsers> DataUsers { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // ✅ Ensure Correct Foreign Key for Payments Table
+            modelBuilder.Entity<Payments>()
+                .HasOne(p => p.Member)
+                .WithMany()
+                .HasForeignKey(p => p.Member_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Payments>()
+                .HasOne(p => p.Loan)
+                .WithMany()
+                .HasForeignKey(p => p.Loan_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ✅ Ensure Correct Foreign Key for Loans Table
+            modelBuilder.Entity<Loans>()
+                .HasOne(l => l.Member)
+                .WithMany()
+                .HasForeignKey(l => l.Member_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ✅ Ensure Correct Foreign Key for DataUsers Table
+            modelBuilder.Entity<DataUsers>()
+                .HasOne(d => d.Member)
+                .WithMany()
+                .HasForeignKey(d => d.Member_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
 
     }
 }
