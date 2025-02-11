@@ -25,30 +25,56 @@ namespace Cooperative_Financing.Controllers
             return View(pageData);
         }
         [HttpPost]
-        public IActionResult Login(string Username, string Password)
+        public IActionResult Login(string username, string password)
         {
-            var user = _context.DataUsers.FirstOrDefault(u => u.Username == Username && u.Password == Password);
-
-            if (user != null)
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                if (user.Is_Admin)
-                {
-                    ViewBag.WelcomeMessage = "Welcome, Admin!";
-                }
-                else
-                {
-                    ViewBag.WelcomeMessage = "Welcome, Member!";
-                }
+                ViewBag.Error = "Username and Password are required.";
+                return View("Index");
             }
 
-            ViewBag.Error = "Invalid Member ID or Password";
-            return View("Index");
+            var user = _context.DataUsers.FirstOrDefault(u => u.Username == username);
+
+            if (user == null || user.Password != password) // Consider using password hashing
+            {
+                ViewBag.Error = "Invalid username or password.";
+                return View("Index");
+            }
+
+            // ✅ Store login session securely
+            HttpContext.Session.SetInt32("UserId", user.User_Id);
+            HttpContext.Session.SetInt32("IsAdmin", user.Is_Admin ? 1 : 0);
+
+            if (user.Is_Admin)
+            {
+                return RedirectToAction("AdminDashboard");
+            }
+
+            ViewBag.WelcomeMessage = "Welcome, Member!";
+            return RedirectToAction("MemberDashboard"); // Redirect members to their dashboard
         }
 
+        [HttpGet]
         public IActionResult AdminDashboard()
         {
+            int? userId = HttpContext.Session.GetInt32("UserId");
+            int? isAdmin = HttpContext.Session.GetInt32("IsAdmin");
+
+            // ✅ Check if user is authenticated
+            if (userId == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            // ✅ Restrict non-admin users
+            if (isAdmin != 1)
+            {
+                return RedirectToAction("Index");
+            }
+
             return View();
         }
+
 
         public IActionResult UserDashboard()
         {

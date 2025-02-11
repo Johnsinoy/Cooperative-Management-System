@@ -19,7 +19,21 @@ builder.Services.AddDbContext<CooperativeContext>(options =>
 // ✅ Register MVC Controllers & Views
 builder.Services.AddControllersWithViews();
 
+// ✅ Add session and distributed memory cache
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
+
+// ✅ Enable session middleware
+app.UseSession();
 
 app.UseStaticFiles();
 app.UseRouting();
