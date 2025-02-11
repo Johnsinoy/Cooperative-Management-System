@@ -7,5 +7,7 @@ namespace Cooperative_Financing.Models
             : base(options)
         {
         }
+        public DbSet<Members> Members { get; set; }
+
     }
 }
