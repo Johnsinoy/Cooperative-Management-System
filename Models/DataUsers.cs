@@ -12,9 +12,6 @@ namespace Cooperative_Financing.Models
         [Required]
         public int Member_Id { get; set; }  // ✅ Ensure correct Foreign Key
 
-        [ForeignKey("Member_Id")]
-        public virtual Members Member { get; set; }
-
         [Required]
         public string Password { get; set; }
 

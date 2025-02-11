@@ -35,7 +35,7 @@ namespace Cooperative_Financing.Models
 
             // ✅ Ensure Correct Foreign Key for DataUsers Table
             modelBuilder.Entity<DataUsers>()
-                .HasOne(d => d.Member)
+                .HasOne<Members>()
                 .WithMany()
                 .HasForeignKey(d => d.Member_Id)
                 .OnDelete(DeleteBehavior.Cascade);
