@@ -13,6 +13,9 @@ namespace Cooperative_Financing.Models
         public int Member_Id { get; set; }  // ✅ Ensure correct Foreign Key
 
         [Required]
+        public string Username { get; set; }
+
+        [Required]
         public string Password { get; set; }
 
         public bool Is_Admin { get; set; }

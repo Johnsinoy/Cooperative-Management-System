@@ -3,6 +3,17 @@
 @{
     ViewData["Title"] = "Login";
 }
+@if (!string.IsNullOrEmpty(ViewBag.WelcomeMessage))
+{
+    <script>
+        alert("@ViewBag.WelcomeMessage");
+    </script>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div style="color: red; font-weight: bold;">@ViewBag.Error</div>
+}
 
 <form asp-action="Login" method="post">
     <div class="login-container">
