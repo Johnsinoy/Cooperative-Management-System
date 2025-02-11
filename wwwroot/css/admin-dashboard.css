@@ -1,0 +1,178 @@
+﻿/* 📌 Admin Dashboard Styles */
+body {
+    background: linear-gradient(to right, #00C6FB, #FDEE99);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-weight: bold;
+    color: black;
+    background: linear-gradient(to right, #00C6FB, #FDEE99);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+    .navbar span {
+        cursor: pointer;
+    }
+
+    .navbar div {
+        display: flex;
+        gap: 25px;
+        margin-right: 40px;
+    }
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(to bottom, #00C6FB, #008080);
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+            color: black;
+        }
+
+.menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    .menu button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        background: white;
+        color: black;
+        font-weight: bold;
+        border-radius: 20px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+        .menu button:hover {
+            background: #2F9C95;
+            color: white;
+        }
+
+    .menu .active {
+        background: #2F9C95;
+        color: white;
+        border-radius: 20px;
+    }
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background: gray;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    height: 100px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+    .box:hover {
+        background: #444;
+        transform: scale(1.05);
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Styling */
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: auto;
+}
+
+    .form-container h2 {
+        text-align: center;
+    }
+
+    .form-container label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .form-container input,
+    .form-container textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 10px;
+        background: #008080;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+        .form-container button:hover {
+            background: #006666;
+        }
