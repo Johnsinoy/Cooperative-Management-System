@@ -15,13 +15,13 @@ namespace Cooperative_Financing.Models
         {
             // ✅ Ensure Correct Foreign Key for Payments Table
             modelBuilder.Entity<Payments>()
-                .HasOne(p => p.Member)
+                .HasOne<Members>()
                 .WithMany()
                 .HasForeignKey(p => p.Member_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Payments>()
-                .HasOne(p => p.Loan)
+                .HasOne<Loans>()
                 .WithMany()
                 .HasForeignKey(p => p.Loan_Id)
                 .OnDelete(DeleteBehavior.Cascade);

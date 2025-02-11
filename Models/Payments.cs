@@ -15,13 +15,6 @@ namespace Cooperative_Financing.Models
         [Required]
         public int Member_Id { get; set; }  // ✅ Ensure Foreign Key Property Exists
 
-        // ✅ Explicitly Define Foreign Key Relationships
-        [ForeignKey(nameof(Loan_Id))]
-        public virtual Loans Loan { get; set; }
-
-        [ForeignKey(nameof(Member_Id))]
-        public virtual Members Member { get; set; }
-
         [Column(TypeName = "date")]
         public DateTime Payment_Date { get; set; }
 
