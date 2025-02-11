@@ -1,23 +1,19 @@
-using Cooperative_Financing.Models;
+﻿using Cooperative_Financing.Models.ViewModels; // ✅ Make sure this is correct!
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Cooperative_Financing.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
-            return View();
-        }
+            var pageData = new PageViewModel(
+                "Home",
+                "Welcome to the Cooperative Financing platform.",
+                "Home"
+            );
 
-       
+            return View(pageData);
+        }
     }
 }
